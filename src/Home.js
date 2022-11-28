@@ -2,14 +2,13 @@ import React from "react";
 import SearchForm from './Components/SearchForm';
 import Gallery from './Components/Gallery';
 import { useState, useEffect } from "react";
-import axios from 'axios';
+
 
 
 
 const Home = () => {
 
   let [search, setSearch] = useState('')
-  let [message, setMessage] = useState('Search for your favorite recipes!')
   let [data, setData] = useState([])
 
 // let recipeUrl 
@@ -36,7 +35,13 @@ const Home = () => {
 useEffect(()=>{
 
     const fetchData = async () =>{
-      const response = await fetch(`https://what-the-chef-backend.herokuapp.com/recipe?title=${search}`)
+      const response = await fetch(`https://what-the-chef-backend.herokuapp.com/recipe?title=${search}`,{
+        method:'GET',
+        mode:'cors',
+        headers:{
+          "Content-Type" : 'application/json'
+        }
+      })
       const resData = await response.json()
       setData(resData.data)
     }

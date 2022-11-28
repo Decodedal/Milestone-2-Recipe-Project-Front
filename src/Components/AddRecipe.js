@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { Form, FormGroup } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Col from 'react-bootstrap/Col';
-import FormRange from "react-bootstrap/esm/FormRange";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
-import { useNavigate } from "react-router-dom";
+
 
 
 

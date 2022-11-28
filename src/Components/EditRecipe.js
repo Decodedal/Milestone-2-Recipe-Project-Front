@@ -1,19 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Form, FormGroup } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
-import { useParams, useNavigate } from "react-router-dom";
-import axios from 'axios';
+import { useParams} from "react-router-dom";
 import "./css/editrecipe.css"
 
 
 
 const EditRecipe = () => {
-  
-  const Navigate = useNavigate()
+
 
   let { id } = useParams();
 //store the entire request in state
@@ -86,7 +84,6 @@ const [ingredientList, setIngredientList] = useState([]);
   }
 
   useEffect(() => {
-    // fetchRecipeById(id);
     getInfo(id);
   }, []);
   

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import "./css/recipepage.css"
 import Button from 'react-bootstrap/Button';
-import { margin } from '@mui/system';
 
 const RecipePage = () => {
   const [recipe, setRecipeById] = useState([]);
@@ -18,22 +16,6 @@ const RecipePage = () => {
   useEffect(() => {
     getInfo(id);
 }, []);
-
-//fetch the data and break it up into more easy to read labels 
-const fetchRecipeById = (id) => {
-  // console.log(id);
-  axios
-      .get('https://what-the-chef-backend.herokuapp.com/'+ id)
-      .then((res) => {
-        console.log(res.data);
-        setRecipeById(res.data);
-        setSteps(res.data.steps);
-        setIngredients(res.data.ingredients);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-};
 
   const getInfo = async (id) =>{
     const response = await fetch('https://what-the-chef-backend.herokuapp.com/recipe/'+ id)
