@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react'
 import NavBar from './Components/NavBar';
-import Home from './Home';
+import Home from './Components/Home';
 import AddRecipe from './Components/AddRecipe';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Gallery from './Components/Gallery';
