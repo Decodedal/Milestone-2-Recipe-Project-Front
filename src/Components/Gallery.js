@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import React, { useState} from 'react';
 import "./css/gallery.css"
 
 
-//we’ll use Axios to fetch the data from the URL endpoint
-import axios from 'axios';
 import GalleryItem from './GalleryItem';
 
 const RecipeGallery = ({data}) => {

@@ -11,44 +11,24 @@ const Home = () => {
   let [search, setSearch] = useState('')
   let [data, setData] = useState([])
 
-// let recipeUrl 
-// if(search = ""){
-//   recipeUrl = "http://localhost:4000/recipe"
-//   }else{
-//     recipeUrl =`http://localhost:4000/recipe?title=${search}`
-//   }
 
-//   useEffect(()=>{
-//       axios
-//       .get(`http://localhost:4000/recipe?title=${search}`)
-//       .then((res) => {
-//         console.log(search)
-//         setData(res.data.data)
+// useEffect(()=>{
+
+//     const fetchData = async () =>{
+//       const response = await fetch(`https://what-the-chef-backend.herokuapp.com/recipe?title=${search}`,{
+//         method:'GET',
+//         mode:'cors',
+//         headers:{
+//           "Content-Type" : 'application/json'
+//         }
 //       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-  
-// },[setSearch])
-
-
-useEffect(()=>{
-
-    const fetchData = async () =>{
-      const response = await fetch(`https://what-the-chef-backend.herokuapp.com/recipe?title=${search}`,{
-        method:'GET',
-        mode:'cors',
-        headers:{
-          "Content-Type" : 'application/json'
-        }
-      })
-      const resData = await response.json()
-      setData(resData.data)
-    }
-    fetchData()
+//       const resData = await response.json()
+//       setData(resData.data)
+//     }
+//     fetchData()
   
   
-},[search])
+// },[search])
 
   const handleSearch = (e, term) => {
     e.preventDefault()

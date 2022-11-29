@@ -4,14 +4,12 @@ import NavBar from './Components/NavBar';
 import Home from './Home';
 import AddRecipe from './Components/AddRecipe';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import {useEffect, useState} from 'react';
 import Gallery from './Components/Gallery';
 import RecipePage from './Components/RecipePage';
 import SearchForm from './Components/SearchForm'
 import EditRecipe from './Components/EditRecipe';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Switch } from '@mui/material';
 
 function App() {
 
