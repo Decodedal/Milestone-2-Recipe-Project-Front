@@ -18,7 +18,12 @@ const RecipePage = () => {
 }, []);
 
   const getInfo = async (id) =>{
-    const response = await fetch('https://what-the-chef-backend.herokuapp.com/recipe/'+ id)
+    const response = await fetch('https://what-the-chef-backend.onrender.com/recipe/'+ id,{
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
     const resData = await response.json()
     //console.log(resData.steps[0].step_body)
     setRecipeById(resData);
@@ -50,7 +55,7 @@ return (
 //deletes recipe
 async function deleteRecipe() {
   if(window.confirm("Are you sure you want to delete this recipe")){
-  await fetch(`https://what-the-chef-backend.herokuapp.com/recipe/${id}`, {
+  await fetch(`https://what-the-chef-backend.onrender.com/recipe/${id}`, {
     method: 'DELETE'
   })
   navigate('/')

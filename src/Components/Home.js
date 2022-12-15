@@ -15,12 +15,11 @@ const Home = () => {
 useEffect(()=>{
 
     const fetchData = async () =>{
-      const response = await fetch(`https://what-the-chef-backend.herokuapp.com/recipe?title=${search}`,{
-        method:'GET',
-        mode:'cors',
-        headers:{
-          "Content-Type" : 'application/json'
-        }
+      const response = await fetch(`https://what-the-chef-backend.onrender.com/recipe?title=${search}`,{
+        headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  }
       })
       const resData = await response.json()
       setData(resData.data)

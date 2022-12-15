@@ -88,7 +88,12 @@ const [ingredientList, setIngredientList] = useState([]);
   }, []);
   
   const getInfo = async (id) =>{
-    const response = await fetch('https://what-the-chef-backend.herokuapp.com/recipe/'+ id)
+    const response = await fetch('https://what-the-chef-backend.onrender.com/recipe/'+ id,{
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
     const resData = await response.json()
     //console.log(resData.steps[0].step_body)
     setRecipeData(resData)
@@ -114,7 +119,7 @@ const [ingredientList, setIngredientList] = useState([]);
 
     return (
       <div style={{display: "flex", justifyContent:"center"}}>
-      <Form action={`https://what-the-chef-backend.herokuapp.com/recipe/${id}?_method=PUT`} method='POST'>
+      <Form action={`https://what-the-chef-backend.onrender.com/recipe/${id}?_method=PUT`} method='POST'>
           <h1 style={{color: "rgba(157,47,47)", fontWeight: "bolder", marginBottom: "5rem"}}>Edit Recipe : {recipeData.title}!</h1>
           <hr/>
           <Row className="align-items-center" style={{ }}>
