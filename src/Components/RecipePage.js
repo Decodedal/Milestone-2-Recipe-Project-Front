@@ -56,8 +56,12 @@ return (
 async function deleteRecipe() {
   if(window.confirm("Are you sure you want to delete this recipe")){
   await fetch(`https://what-the-chef-backend.onrender.com/recipe/${id}`, {
-    method: 'DELETE'
-  })
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    }
+})
   navigate('/')
 }
 }
@@ -98,7 +102,7 @@ async function deleteRecipe() {
           </div>
          <div className='button-container'>
           <Button style={{backgroundColor : "#9d2f2f", margin:"0.5rem"}} onClick={deleteRecipe}>Delete</Button>
-          <Link to={`/recipe/${id}/edit`}><Button style={{backgroundColor : "#9d2f2f", margin:"0.5rem"}}>edit recipe</Button></Link>
+          <Link to={`/${id}/edit`}><Button style={{backgroundColor : "#9d2f2f", margin:"0.5rem"}}>edit recipe</Button></Link>
          </div>
     </div>
   );

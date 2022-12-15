@@ -23,8 +23,8 @@ function App() {
           <Route exact path='/' element={<SearchForm />} />
           <Route exact path='/' element={<Gallery/>} />
           <Route exact path="/recipe/new" element={<AddRecipe />} />
-          <Route exact path='/recipe/:id' element={<RecipePage />} />
-          <Route exact path='/recipe/:id/edit' element={<EditRecipe/>}/>
+          <Route exact path='/:id' element={<RecipePage />} />
+          <Route exact path='/:id/edit' element={<EditRecipe/>}/>
       </Routes>
       </Router>
     </div>
