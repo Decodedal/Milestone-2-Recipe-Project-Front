@@ -5,9 +5,9 @@ import './css/searchform.css'
 import { useState } from 'react'
 import '../assets/fonts/Roboto-Bold.ttf'
 
-function SearchForm(props){
+function SearchForm(props:any){
     
-    let [searchTerm, setSearchTerm] = useState('')
+    let [searchTerm, setSearchTerm]:any = useState('')
     
  
 

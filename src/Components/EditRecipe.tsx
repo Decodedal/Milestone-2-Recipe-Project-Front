@@ -15,13 +15,13 @@ const EditRecipe = () => {
 
   let { id } = useParams();
 //store the entire request in state
-  const [recipeData, setRecipeData] = useState({});
+  const [recipeData, setRecipeData]:any = useState({});
 //the data that will be sent for updateing recipe
-  const [updateData, setUpdateData] = useState({})
+  const [updateData, setUpdateData]:any = useState({})
 
 
 
-const [ingredientList, setIngredientList] = useState([]);
+const [ingredientList, setIngredientList]:any = useState([]);
 
   //console.log(ingredientList)
 
@@ -44,17 +44,17 @@ const [ingredientList, setIngredientList] = useState([]);
     setQuantityList(quant)
   }
 
-  const handleIngredientChange = (e, index) =>{
+  const handleIngredientChange = (e:any, index:any) =>{
     const {value} = e.target;
-    const list = [...ingredientList];
+    const list:any = [...ingredientList];
     list[index] = value;
     setIngredientList(list);
     console.log(ingredientList)
   }
 
-  const [quantityList, setQuantityList] = useState([]); 
+  const [quantityList, setQuantityList]:any = useState([]); 
 
-  const [stepList, setStepList] = useState([]);
+  const [stepList, setStepList]:any = useState([]);
 
 
   const handleAddStep = () =>{
@@ -67,7 +67,7 @@ const [ingredientList, setIngredientList] = useState([]);
     setStepList(steps)
   }
 
-  const handleStepChange = (e, index) =>{
+  const handleStepChange = (e:any, index:any) =>{
     const {value} = e.target;
     const steps = [...stepList];
     steps[index]= value;
@@ -75,7 +75,7 @@ const [ingredientList, setIngredientList] = useState([]);
     console.log(stepList)
   }
 
-  const handleQunatityChange = (e, index) =>{
+  const handleQunatityChange = (e:any, index:any) =>{
     const {value} = e.target;
     const quant = [...quantityList];
     quant[index] = value;
@@ -87,7 +87,7 @@ const [ingredientList, setIngredientList] = useState([]);
     getInfo(id);
   }, []);
   
-  const getInfo = async (id) =>{
+  const getInfo = async (id:any) =>{
     const response = await fetch('https://what-the-chef-backend.onrender.com/recipe/'+ id,{
       headers: {
         'Content-Type': 'application/json'
@@ -101,16 +101,16 @@ const [ingredientList, setIngredientList] = useState([]);
 
     const { ingredients, steps } = resData
     //processing all the nested values for display on page
-    const stepArr =[]
-    steps.forEach((step, i) =>  stepArr.push(steps[i].step_body))
+    const stepArr:any =[]
+    steps.forEach((step:any, i:any) =>  stepArr.push(steps[i].step_body))
     setStepList(stepArr)
     //process ingredients
-    const ingredientArr =[]
-    ingredients.forEach((ingredient,i) => ingredientArr.push(ingredient.name))
+    const ingredientArr:any =[]
+    ingredients.forEach((ingredient:any,i:any) => ingredientArr.push(ingredient.name))
     setIngredientList(ingredientArr)
     //proccess quantity
-    const quantArr = [];
-    ingredients.forEach((ingredient, i) => quantArr.push(ingredient.Recipe_ingredient.quantity))
+    const quantArr:any = [];
+    ingredients.forEach((ingredient:any, i:any) => quantArr.push(ingredient.Recipe_ingredient.quantity))
     setQuantityList(quantArr)
 
     //sets the data for our update object 
@@ -148,7 +148,7 @@ const [ingredientList, setIngredientList] = useState([]);
             <Form.Label style={{ fontWeight: "bolder",color: "rgba(157,47,47)"}}>Ingredients</Form.Label>
            <div className="ingredients-container">
             <div id="ingredients">
-            {ingredientList.map((singleIngredient,index)=>(
+            {ingredientList.map((singleIngredient:any,index:any)=>(
                 <Row key={index} className="align-items-center" style={{ }}>
               <Col xs="auto">
                 <InputGroup className="mb-2">
@@ -160,7 +160,7 @@ const [ingredientList, setIngredientList] = useState([]);
               ))}
               </div>
               <div className="quantitys">
-              {quantityList.map((quantity,index)=>{
+              {quantityList.map((quantity:any,index:any)=>{
                 return(
                 <Col xs="auto" key={index}>
                   <InputGroup className="mb-2">
@@ -186,7 +186,7 @@ const [ingredientList, setIngredientList] = useState([]);
           </Form.Group>
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label style={{ fontWeight: "bolder",color: "rgba(157,47,47)"}}>Steps</Form.Label>
-            {stepList.map((singleStep,index)=>(
+            {stepList.map((singleStep:any,index:any)=>(
               <div key={index}>
               <InputGroup className="mb-2"  >
                 <InputGroup.Text>{index+1}</InputGroup.Text>
@@ -199,7 +199,7 @@ const [ingredientList, setIngredientList] = useState([]);
                 </Button>
               )}
               {stepList.length -1 === index && stepList.length >2 &&(
-                <Button type="submit" className="mb-2" style={{color: "rgba(157,47,47)", backgroundColor:"#F9F9ED", borderColor: "rgba(157,47,47)" }} onClick={()=>handleRemoveStep(index)}>
+                <Button type="submit" className="mb-2" style={{color: "rgba(157,47,47)", backgroundColor:"#F9F9ED", borderColor: "rgba(157,47,47)" }} onClick={()=>handleRemoveStep()}>
                 Remove a Step
                 </Button>
               )}

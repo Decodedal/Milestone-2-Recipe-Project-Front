@@ -19,12 +19,12 @@ function App() {
       <Router>
       <NavBar/>
       <Routes>
-          <Route exact path='/' element={<Home/>} />
-          <Route exact path='/' element={<SearchForm />} />
-          <Route exact path='/' element={<Gallery/>} />
-          <Route exact path="/recipe/new" element={<AddRecipe />} />
-          <Route exact path='/:id' element={<RecipePage />} />
-          <Route exact path='/:id/edit' element={<EditRecipe/>}/>
+          <Route path='/' element={<Home/>} />
+          <Route path='/' element={<SearchForm />} />
+          <Route path='/' element={<Gallery/>} />
+          <Route path="/recipe/new" element={<AddRecipe />} />
+          <Route path='/:id' element={<RecipePage />} />
+          <Route path='/:id/edit' element={<EditRecipe/>}/>
       </Routes>
       </Router>
     </div>

@@ -29,7 +29,7 @@ useEffect(()=>{
   
 },[search])
 
-  const handleSearch = (e, term) => {
+  const handleSearch = (e:any, term:any) => {
     e.preventDefault()
     setSearch(term)
 }

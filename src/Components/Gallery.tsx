@@ -4,11 +4,11 @@ import "./css/gallery.css"
 
 import GalleryItem from './GalleryItem';
 
-const RecipeGallery = ({data}) => {
+const RecipeGallery = ({data}:any) => {
   const [recipeCards, setRecipeCards] = useState([]);
 
   //creates each individule instance in the gallery
-  const GalleryMapped = data.map((recipeCard, i) => (
+  const GalleryMapped = data.map((recipeCard:any, i:any) => (
       <GalleryItem recipeCard = {recipeCard} key={i}/>
     ))
 

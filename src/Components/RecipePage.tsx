@@ -4,9 +4,9 @@ import "./css/recipepage.css"
 import Button from 'react-bootstrap/Button';
 
 const RecipePage = () => {
-  const [recipe, setRecipeById] = useState([]);
-  const [steps, setSteps] = useState([]);
-  const [ingredients, setIngredients] = useState([]);
+  const [recipe, setRecipeById]:any = useState([]);
+  const [steps, setSteps] :any = useState([]);
+  const [ingredients, setIngredients]:any = useState([]);
 
   const navigate = useNavigate()
 
@@ -17,7 +17,7 @@ const RecipePage = () => {
     getInfo(id);
 }, []);
 
-  const getInfo = async (id) =>{
+  const getInfo = async (id:any) =>{
     const response = await fetch('https://what-the-chef-backend.onrender.com/recipe/'+ id,{
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ const RecipePage = () => {
   }
 
 //create a list of all returned steps
-const mappedSteps = steps.map((step, i) => 
+const mappedSteps = steps.map((step:any, i:any) => 
 {
 return (
   <li key={i}>{step.step_body}</li> 
@@ -41,7 +41,7 @@ return (
 });
 
 //create multiple table rows depending on reurned ingredients and quanitity 
-const mappedIngredients = ingredients.map((ingredient, i) => 
+const mappedIngredients = ingredients.map((ingredient:any, i:any) => 
 {
 return (
   // <li   key={i}>{ingredient.name}: Quantity:{ingredients[i].Recipe_ingredient.quantity}</li> 

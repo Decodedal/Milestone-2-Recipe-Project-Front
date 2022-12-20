@@ -22,13 +22,13 @@ const RecipeForm = () => {
     setIngredientList([...ingredientList, {ingredient:""}])
   }
 
-  const handleRemoveIngredient = (index) =>{
+  const handleRemoveIngredient = (index:any) =>{
     const list = [...ingredientList]
     list.splice(index,1)
     setIngredientList(list)
   }
 
-  const handleIngredientChange = (e, index) =>{
+  const handleIngredientChange = (e:any, index:any) =>{
     const {value} = e.target;
     const list = [...ingredientList];
     list[index]["ingredient"] = value;
@@ -44,13 +44,13 @@ const RecipeForm = () => {
     setStepList([...stepList, {step:""}])
   }
 
-  const handleRemoveStep = (index) =>{
+  const handleRemoveStep = (index:any) =>{
     const steps = [...stepList]
     steps.splice(index,1)
     setStepList(steps)
   }
 
-  const handleStepChange = (e, index) =>{
+  const handleStepChange = (e:any, index:any) =>{
     const {value} = e.target;
     const steps = [...stepList];
     steps[index]["step"] = value;
