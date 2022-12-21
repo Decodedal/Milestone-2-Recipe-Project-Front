@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import SearchForm from './SearchForm';
 import Gallery from './Gallery';
 import { useState, useEffect } from "react";
@@ -29,7 +29,7 @@ useEffect(()=>{
   
 },[search])
 
-  const handleSearch = (e:any, term:any) => {
+  const handleSearch = (e:ChangeEvent<HTMLInputElement>, term:string) => {
     e.preventDefault()
     setSearch(term)
 }

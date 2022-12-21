@@ -8,7 +8,7 @@ const RecipeGallery = ({data}:any) => {
   const [recipeCards, setRecipeCards] = useState([]);
 
   //creates each individule instance in the gallery
-  const GalleryMapped = data.map((recipeCard:any, i:any) => (
+  const GalleryMapped = data.map((recipeCard:any, i:number) => (
       <GalleryItem recipeCard = {recipeCard} key={i}/>
     ))
 

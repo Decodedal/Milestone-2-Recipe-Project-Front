@@ -6,10 +6,7 @@ import { useState } from 'react'
 import '../assets/fonts/Roboto-Bold.ttf'
 
 function SearchForm(props:any){
-    
-    let [searchTerm, setSearchTerm]:any = useState('')
-    
- 
+
 
     return(
         <div className='form'>

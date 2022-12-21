@@ -33,7 +33,7 @@ const RecipePage = () => {
   }
 
 //create a list of all returned steps
-const mappedSteps = steps.map((step:any, i:any) => 
+const mappedSteps = steps.map((step:any, i:number) => 
 {
 return (
   <li key={i}>{step.step_body}</li> 
@@ -41,7 +41,7 @@ return (
 });
 
 //create multiple table rows depending on reurned ingredients and quanitity 
-const mappedIngredients = ingredients.map((ingredient:any, i:any) => 
+const mappedIngredients = ingredients.map((ingredient:any, i:number) => 
 {
 return (
   // <li   key={i}>{ingredient.name}: Quantity:{ingredients[i].Recipe_ingredient.quantity}</li> 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -11,6 +11,15 @@ import "./css/editrecipe.css"
 
 
 const EditRecipe = () => {
+
+ //this interface did not work 
+  interface ingredient{
+    Recipe_ingredient:{
+      quantity:number;
+    }
+    ingredient_id:number;
+    name:string;
+  }
 
 
   let { id } = useParams();
@@ -67,7 +76,7 @@ const [ingredientList, setIngredientList]:any = useState([]);
     setStepList(steps)
   }
 
-  const handleStepChange = (e:any, index:any) =>{
+  const handleStepChange = (e:any, index:number) =>{
     const {value} = e.target;
     const steps = [...stepList];
     steps[index]= value;
@@ -75,7 +84,7 @@ const [ingredientList, setIngredientList]:any = useState([]);
     console.log(stepList)
   }
 
-  const handleQunatityChange = (e:any, index:any) =>{
+  const handleQunatityChange = (e:any, index:number) =>{
     const {value} = e.target;
     const quant = [...quantityList];
     quant[index] = value;
@@ -101,16 +110,16 @@ const [ingredientList, setIngredientList]:any = useState([]);
 
     const { ingredients, steps } = resData
     //processing all the nested values for display on page
-    const stepArr:any =[]
-    steps.forEach((step:any, i:any) =>  stepArr.push(steps[i].step_body))
+    const stepArr:object[] =[]
+    steps.forEach((step:any, i:number) =>  stepArr.push(steps[i].step_body))
     setStepList(stepArr)
     //process ingredients
-    const ingredientArr:any =[]
-    ingredients.forEach((ingredient:any,i:any) => ingredientArr.push(ingredient.name))
+    const ingredientArr:object[] =[]
+    ingredients.forEach((ingredient:any ,i:number) => ingredientArr.push(ingredient.name))
     setIngredientList(ingredientArr)
     //proccess quantity
-    const quantArr:any = [];
-    ingredients.forEach((ingredient:any, i:any) => quantArr.push(ingredient.Recipe_ingredient.quantity))
+    const quantArr:object[] = [];
+    ingredients.forEach((ingredient:any, i:number) => quantArr.push(ingredient.Recipe_ingredient.quantity))
     setQuantityList(quantArr)
 
     //sets the data for our update object 
@@ -148,7 +157,7 @@ const [ingredientList, setIngredientList]:any = useState([]);
             <Form.Label style={{ fontWeight: "bolder",color: "rgba(157,47,47)"}}>Ingredients</Form.Label>
            <div className="ingredients-container">
             <div id="ingredients">
-            {ingredientList.map((singleIngredient:any,index:any)=>(
+            {ingredientList.map((singleIngredient:string,index:number)=>(
                 <Row key={index} className="align-items-center" style={{ }}>
               <Col xs="auto">
                 <InputGroup className="mb-2">
@@ -160,7 +169,7 @@ const [ingredientList, setIngredientList]:any = useState([]);
               ))}
               </div>
               <div className="quantitys">
-              {quantityList.map((quantity:any,index:any)=>{
+              {quantityList.map((quantity:string,index:number)=>{
                 return(
                 <Col xs="auto" key={index}>
                   <InputGroup className="mb-2">
@@ -186,7 +195,7 @@ const [ingredientList, setIngredientList]:any = useState([]);
           </Form.Group>
           <Form.Group className="mb-3" controlId="formDescription">
             <Form.Label style={{ fontWeight: "bolder",color: "rgba(157,47,47)"}}>Steps</Form.Label>
-            {stepList.map((singleStep:any,index:any)=>(
+            {stepList.map((singleStep:string,index:number)=>(
               <div key={index}>
               <InputGroup className="mb-2"  >
                 <InputGroup.Text>{index+1}</InputGroup.Text>
